@@ -18,6 +18,8 @@ if 'rsvp_response' not in st.session_state:
     st.session_state['rsvp_response'] = None
 if 'invitation_generated' not in st.session_state:
     st.session_state['invitation_generated'] = False
+if 'audio_played' not in st.session_state:
+    st.session_state['audio_played'] = False
 
 # logos
 st.markdown("""
@@ -38,9 +40,9 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-# Hidden audio player with autoplay (plays only once)
+# Hidden audio player (plays only once after user interaction)
 st.markdown("""
-    <audio id="weddingAudio" autoplay style="display:none;">
+    <audio id="weddingAudio" style="display:none;">
         <source src="https://github.com/Selvia-nasser/CanaWeddingInvitation/raw/b0ff39331cc39c1bd29e69d47b0ea0d4f4207176/CanaWed.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -54,7 +56,6 @@ st.markdown("""
                 console.error("Error playing audio:", error); // Debugging
             });
         }
-        window.onload = playAudio;
     </script>
     """, unsafe_allow_html=True)
 
@@ -156,6 +157,14 @@ if st.button("احصل على دعوتك"):
         st.session_state['random_number'] = generate_unique_number()
         st.success(f"🎉 تم تسجيل اسمك بنجاح!")
         st.balloons()
+
+        # Play audio when the button is clicked
+        st.session_state['audio_played'] = True
+        st.markdown("""
+            <script>
+                playAudio();
+            </script>
+            """, unsafe_allow_html=True)
 
 
 if st.session_state['invitation_generated']:

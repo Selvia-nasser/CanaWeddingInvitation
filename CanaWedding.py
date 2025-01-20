@@ -18,8 +18,6 @@ if 'rsvp_response' not in st.session_state:
     st.session_state['rsvp_response'] = None
 if 'invitation_generated' not in st.session_state:
     st.session_state['invitation_generated'] = False
-if 'audio_played' not in st.session_state:
-    st.session_state['audio_played'] = False
 
 # logos
 st.markdown("""
@@ -40,24 +38,6 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-# Hidden audio player (plays only once after user interaction)
-st.markdown("""
-    <audio id="weddingAudio" style="display:none;">
-        <source src="https://github.com/Selvia-nasser/CanaWeddingInvitation/raw/b0ff39331cc39c1bd29e69d47b0ea0d4f4207176/CanaWed.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <script>
-        function playAudio() {
-            var audio = document.getElementById("weddingAudio");
-            console.log("Attempting to play audio..."); // Debugging
-            audio.play().then(() => {
-                console.log("Audio is playing!"); // Debugging
-            }).catch((error) => {
-                console.error("Error playing audio:", error); // Debugging
-            });
-        }
-    </script>
-    """, unsafe_allow_html=True)
 
 # Confetti animation for "Yes" response
 st.markdown("""
@@ -158,14 +138,6 @@ if st.button("احصل على دعوتك"):
         st.success(f"🎉 تم تسجيل اسمك بنجاح!")
         st.balloons()
 
-        # Play audio when the button is clicked
-        st.session_state['audio_played'] = True
-        st.markdown("""
-            <script>
-                playAudio();
-            </script>
-            """, unsafe_allow_html=True)
-
 
 if st.session_state['invitation_generated']:
     # The invitation
@@ -226,3 +198,7 @@ if st.session_state['invitation_generated']:
 
 # Image for the page
 st.image("https://i.imgur.com/3LO6o7I.jpg", caption="عرس قانا الجليل")
+
+# Audio player
+audio_url = "https://github.com/Selvia-nasser/CanaWeddingInvitation/raw/b0ff39331cc39c1bd29e69d47b0ea0d4f4207176/CanaWed.mp3"
+st.audio(audio_url, format="audio/mp3", start_time=0, autoplay=True)

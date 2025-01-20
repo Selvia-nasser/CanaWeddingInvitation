@@ -19,7 +19,7 @@ if 'rsvp_response' not in st.session_state:
 if 'invitation_generated' not in st.session_state:
     st.session_state['invitation_generated'] = False
 
-# Add logos
+# logos
 st.markdown("""
     <style>
         .logo-container {
@@ -29,7 +29,7 @@ st.markdown("""
             padding: 10px;
         }
         .logo {
-            height: 80px; /* Adjust height as needed */
+            height: 80px;
         }
     </style>
     <div class="logo-container">

@@ -84,12 +84,12 @@ st.markdown("""
             text-align: center;
         }
         .header {
-            font-size: 2em;
+            font-size: 1.7em;
             color: #0078D4;
             text-align: center;
         }
         .subheader {
-            font-size: 1.5em;
+            font-size: 1.3em;
             color: #5a5a5a;
         }
         .content {
@@ -199,7 +199,7 @@ if st.session_state['invitation_generated']:
         <style>
             .header2 {
                 text-align: right;
-                font-size: 2em;
+                font-size: 1.7em;
                 color: #0078D4;
                 font-weight: bold;
             }

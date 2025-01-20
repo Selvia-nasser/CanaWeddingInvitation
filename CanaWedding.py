@@ -38,6 +38,9 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
+# Audio player 
+audio_url = "https://github.com/Selvia-nasser/CanaWeddingInvitation/raw/b0ff39331cc39c1bd29e69d47b0ea0d4f4207176/CanaWed.mp3"
+st.audio(audio_url, format="audio/mp3", start_time=0, autoplay=True)
 
 # Confetti animation for "Yes" response
 st.markdown("""
@@ -198,7 +201,3 @@ if st.session_state['invitation_generated']:
 
 # Image for the page
 st.image("https://i.imgur.com/3LO6o7I.jpg", caption="عرس قانا الجليل")
-
-# Audio player
-audio_url = "https://github.com/Selvia-nasser/CanaWeddingInvitation/raw/b0ff39331cc39c1bd29e69d47b0ea0d4f4207176/CanaWed.mp3"
-st.audio(audio_url, format="audio/mp3", start_time=0, autoplay=True)

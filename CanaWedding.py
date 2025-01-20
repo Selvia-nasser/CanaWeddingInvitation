@@ -38,9 +38,26 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-# Audio player using st.audio
-audio_url = "https://github.com/Selvia-nasser/CanaWeddingInvitation/raw/b0ff39331cc39c1bd29e69d47b0ea0d4f4207176/CanaWed.mp3"
-st.audio(audio_url, format="audio/mp3", start_time=0, autoplay=True)
+# Hidden audio player with autoplay
+st.markdown("""
+    <audio id="weddingAudio" autoplay loop style="display:none;">
+        <source src="https://github.com/Selvia-nasser/CanaWeddingInvitation/raw/b0ff39331cc39c1bd29e69d47b0ea0d4f4207176/CanaWed.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        function playAudio() {
+            var audio = document.getElementById("weddingAudio");
+            console.log("Attempting to play audio..."); // Debugging
+            audio.play().then(() => {
+                console.log("Audio is playing!"); // Debugging
+            }).catch((error) => {
+                console.error("Error playing audio:", error); // Debugging
+            });
+        }
+        // Automatically play audio when the page loads
+        window.onload = playAudio;
+    </script>
+    """, unsafe_allow_html=True)
 
 # Confetti animation for "Yes" response
 st.markdown("""

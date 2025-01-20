@@ -19,6 +19,12 @@ if 'rsvp_response' not in st.session_state:
 if 'invitation_generated' not in st.session_state:
     st.session_state['invitation_generated'] = False
 
+
+# Audio player 
+audio_url = "https://github.com/Selvia-nasser/CanaWeddingInvitation/raw/b0ff39331cc39c1bd29e69d47b0ea0d4f4207176/CanaWed.mp3"
+st.audio(audio_url, format="audio/mp3", start_time=0, autoplay=True) 
+
+
 # logos
 st.markdown("""
     <style>
@@ -38,9 +44,6 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-# Audio player 
-audio_url = "https://github.com/Selvia-nasser/CanaWeddingInvitation/raw/b0ff39331cc39c1bd29e69d47b0ea0d4f4207176/CanaWed.mp3"
-st.audio(audio_url, format="audio/mp3", start_time=0, autoplay=True)
 
 # Confetti animation for "Yes" response
 st.markdown("""

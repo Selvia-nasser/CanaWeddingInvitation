@@ -38,9 +38,9 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-# Hidden audio player with autoplay
+# Hidden audio player with autoplay (plays only once)
 st.markdown("""
-    <audio id="weddingAudio" autoplay loop style="display:none;">
+    <audio id="weddingAudio" autoplay style="display:none;">
         <source src="https://github.com/Selvia-nasser/CanaWeddingInvitation/raw/b0ff39331cc39c1bd29e69d47b0ea0d4f4207176/CanaWed.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -54,7 +54,6 @@ st.markdown("""
                 console.error("Error playing audio:", error); // Debugging
             });
         }
-        // Automatically play audio when the page loads
         window.onload = playAudio;
     </script>
     """, unsafe_allow_html=True)

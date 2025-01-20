@@ -89,7 +89,7 @@ st.markdown("""
             text-align: center;
         }
         .subheader {
-            font-size: 1.3em;
+            font-size: 1.2em;
             color: #5a5a5a;
         }
         .content {

@@ -1,6 +1,5 @@
 import streamlit as st
 import random
-import requests
 from datetime import datetime
 
 st.set_page_config(
@@ -20,7 +19,7 @@ if 'rsvp_response' not in st.session_state:
 if 'invitation_generated' not in st.session_state:
     st.session_state['invitation_generated'] = False
 
-# Add logos at the top
+# Add logos
 st.markdown("""
     <style>
         .logo-container {
@@ -39,14 +38,22 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-# Music autoplay using JS
+# Music player with JavaScript
 st.markdown("""
-    <audio id="weddingAudio" autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" type="audio/mpeg">
+    <audio id="weddingAudio" loop>
+    <source src="https://github.com/Selvia-nasser/CanaWeddingInvitation/raw/b0ff39331cc39c1bd29e69d47b0ea0d4f4207176/CanaWed.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
     </audio>
     <script>
-        document.getElementById("weddingAudio").play();
+        function playAudio() {
+            var audio = document.getElementById("weddingAudio");
+            console.log("Attempting to play audio..."); // Debugging
+            audio.play().then(() => {
+                console.log("Audio is playing!"); // Debugging
+            }).catch((error) => {
+                console.error("Error playing audio:", error); // Debugging
+            });
+        }
     </script>
     """, unsafe_allow_html=True)
 
@@ -79,6 +86,7 @@ st.markdown("""
         .header {
             font-size: 2em;
             color: #0078D4;
+            text-align: center;
         }
         .subheader {
             font-size: 1.5em;
@@ -148,6 +156,18 @@ if st.button("احصل على دعوتك"):
         st.success(f"🎉 تم تسجيل اسمك بنجاح!")
         st.balloons()
 
+        # Play music when the button is clicked
+        st.markdown("""
+            <script>
+                document.getElementById("weddingAudio").play().then(() => {
+                    console.log("Audio is playing!"); // Debugging
+                }).catch((error) => {
+                    console.error("Error playing audio:", error); // Debugging
+                });
+            </script>
+            """, unsafe_allow_html=True)
+
+
 if st.session_state['invitation_generated']:
     # The invitation
     st.markdown(f"""
@@ -175,7 +195,20 @@ if st.session_state['invitation_generated']:
     """, unsafe_allow_html=True)
 
     # RSVP confirmation
-    st.markdown('<div class="main"><div class="header">جاي الفرح؟</div></div>', unsafe_allow_html=True)
+    st.markdown("""
+        <style>
+            .header2 {
+                text-align: right;
+                font-size: 2em;
+                color: #0078D4;
+                font-weight: bold;
+            }
+        </style>
+        <div class="main">
+            <div class="header2">جاي الفرح؟</div>
+        </div>
+        """, unsafe_allow_html=True)
+
 
     rsvp_response = st.radio("أكيد هتحضر؟", ["اه أكيد", "لا"], index=0 if st.session_state['rsvp_response'] == "اه أكيد" else 1)
 

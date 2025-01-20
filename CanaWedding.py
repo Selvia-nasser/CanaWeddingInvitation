@@ -226,4 +226,4 @@ if st.session_state['invitation_generated']:
             st.warning(f"😢هتوحشنا. عيلتنا هتبقى ناقصة من غيرك يا {st.session_state['name']}!")
 
 # Image for the page
-st.image("https://i.imgur.com/3LO6o7I.jpg", caption="عرس قانا الجليل", use_container_width=True)
+st.image("https://i.imgur.com/3LO6o7I.jpg", caption="عرس قانا الجليل")

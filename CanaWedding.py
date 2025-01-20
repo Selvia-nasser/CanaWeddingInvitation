@@ -174,8 +174,8 @@ if st.session_state['invitation_generated']:
         <div class="main content">
             <div style="background-color: #f0f8ff; padding: 10px; border-radius: 10px;">
                 <h3 style="color: #0078D4;font-weight: bold;">عرس قانا الجليل</h3>
-                <p style="color: #5a5a5a;font-weight: bold;">دعوة خاصة: {st.session_state['name']} - رقمك: {st.session_state['random_number']}</p>
-                <p style="color: #5a5a5a;">مستنيينك يوم الجمعة الساعة 6:00م</p>
+                    <p style="color: #5a5a5a;font-weight: bold;">دعوة خاصة: {st.session_state['name']}</p>
+                    <p style="color: #5a5a5a;font-weight: bold;">رقم الدعوة: {st.session_state['random_number']}</p>
             </div>
         </div>
     """, unsafe_allow_html=True)
